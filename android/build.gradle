@@ -2,13 +2,17 @@ group 'com.taobao.power_image'
 version '1.0'
 
 buildscript {
+    ext {
+        kotlin_version = '1.9.24'
+    }
     repositories {
         google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.2'
+        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -20,6 +24,7 @@ rootProject.allprojects {
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
     compileSdkVersion 34
@@ -39,10 +44,17 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 //    externalNativeBuild {
 //        cmake {
 //            path file('src/main/cpp/CMakeLists.txt')
 //            version '3.10.2'
 //        }
 //    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.15.0'
 }
