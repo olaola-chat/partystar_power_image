@@ -1,6 +1,4 @@
-import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 ///
 /// this is abstract class for custom Src to native laoder
 ///
@@ -91,5 +89,5 @@ class PowerImageRequestOptionsSrcAsset extends PowerImageRequestOptionsSrc {
   }
 
   @override
-  int get hashCode => hashValues(src, package);
+  int get hashCode => Object.hash(src, package);
 }
